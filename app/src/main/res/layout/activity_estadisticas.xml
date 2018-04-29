@@ -28,15 +28,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="BIENVENIDO" />
-
-    <Button
-        android:id="@+id/boton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="222dp"
-        android:text="Abrir estadisticas" />
-
+        android:text="ESTADÍSTICAS" />
 </RelativeLayout>
