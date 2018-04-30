@@ -21,7 +21,8 @@ import java.io.ObjectInputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button boton;
+    private Button boton1;
+    private Button boton2;
     private  static Usuario appUser;
 
     @Override
@@ -57,26 +58,32 @@ public class MainActivity extends AppCompatActivity {
         // Do something else.
 
 
-        boton = (Button) findViewById(R.id.boton1);
-        boton.setOnClickListener(new View.OnClickListener() {
+        boton1 = (Button) findViewById(R.id.boton1);
+        boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openEstadisticas();
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        boton2 = (Button) findViewById(R.id.boton2);
+        boton2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                openAsignaturas();
             }
         });
+
+
     }
 
     public void openEstadisticas(){
         Intent intent = new Intent(this, Estadisticas.class);
+        startActivity(intent);
+    }
+
+    public void openAsignaturas(){
+        Intent intent = new Intent(this, OfertaAsignaturas.class);
         startActivity(intent);
     }
 
@@ -87,20 +94,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     public static Usuario getAppUser() {
         return appUser;
