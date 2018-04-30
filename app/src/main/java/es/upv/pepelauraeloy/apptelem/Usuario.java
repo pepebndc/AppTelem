@@ -1,7 +1,21 @@
 package es.upv.pepelauraeloy.apptelem;
 
+import android.content.Context;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.FileOutputStream;
 
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 5950169519310163575L;
@@ -110,5 +124,22 @@ public class Usuario implements Serializable {
 
     public void setAsignaturas(ArrayList<Asignatura> asignaturas) {
         this.asignaturas = asignaturas;
+    }
+
+    public static void guardar (){
+        Usuario usuarioGuardar = MainActivity.getAppUser();
+        try {
+            FileOutputStream fileOut = new FileOutputStream("APPtelemUsuario");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(usuarioGuardar);
+            out.close();
+            fileOut.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

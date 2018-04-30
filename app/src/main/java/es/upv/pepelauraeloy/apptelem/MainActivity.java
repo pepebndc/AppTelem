@@ -22,7 +22,7 @@ import java.io.ObjectInputStream;
 public class MainActivity extends AppCompatActivity {
 
     private Button boton;
-    private Usuario appUser;
+    private  static Usuario appUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         //COMPROBAR SI EXISTE EL OBJETO DEL USUARIO, O CREARLO
         File file = new File("APPtelemUsuario");
+
         // si existe, loadear el usuario
         if(file.exists()) {
             try {
@@ -49,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
         }
         //Do something
         else{
-            //si no existe, crear un usuario nuevo
+            //si no existe, crear un usuario nuevo y guardarlo
             appUser = new Usuario ();
+            Usuario.guardar();
         }
         // Do something else.
 
@@ -100,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public Usuario getAppUser() {
+    public static Usuario getAppUser() {
         return appUser;
     }
 
-    public void setAppUser(Usuario appUser) {
-        this.appUser = appUser;
+    public static void setAppUser(Usuario appUser1) {
+        appUser = appUser1;
     }
 }
