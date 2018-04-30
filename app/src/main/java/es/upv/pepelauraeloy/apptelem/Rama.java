@@ -1,6 +1,9 @@
 package es.upv.pepelauraeloy.apptelem;
 
-public class Rama {
+import java.io.Serializable;
+
+public class Rama implements Serializable {
+    private static final long serialVersionUID = 5950169519310163575L;
     int ID;
     private String nombre;
 

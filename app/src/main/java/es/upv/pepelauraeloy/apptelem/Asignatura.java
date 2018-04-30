@@ -1,21 +1,26 @@
 package es.upv.pepelauraeloy.apptelem;
 
-public class Asignatura {
+import java.io.Serializable;
+
+public class Asignatura implements Serializable {
+    private static final long serialVersionUID = 5950169519310163575L;
     private int ID;
     private String nombre;
     private int rama;
-    private int creditos;
+    private double creditos;
     private float calificacion;
-    private boolean terminada;
+    private int estado;
     private int semestre;
 
-    public Asignatura(int ID, String nombre, int rama, int creditos, float calificacion, boolean terminada, int semestre) {
+    //Estado: 0=Nada ; 1=quiero hacerla; 2= cursada
+
+    public Asignatura(int ID, String nombre, int rama, double creditos, float calificacion, int estado, int semestre) {
         this.ID = ID;
         this.nombre = nombre;
         this.rama = rama;
         this.creditos = creditos;
         this.calificacion = calificacion;
-        this.terminada = terminada;
+        this.estado = estado;
         this.semestre = semestre;
     }
 
@@ -43,11 +48,11 @@ public class Asignatura {
         this.rama = rama;
     }
 
-    public int getCreditos() {
+    public double getCreditos() {
         return creditos;
     }
 
-    public void setCreditos(int creditos) {
+    public void setCreditos(double creditos) {
         this.creditos = creditos;
     }
 
@@ -59,12 +64,12 @@ public class Asignatura {
         this.calificacion = calificacion;
     }
 
-    public boolean isTerminada() {
-        return terminada;
+    public int getEstado() {
+        return estado;
     }
 
-    public void setTerminada(boolean terminada) {
-        this.terminada = terminada;
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 
     public int getSemestre() {
