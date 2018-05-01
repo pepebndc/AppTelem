@@ -3,6 +3,7 @@ package es.upv.pepelauraeloy.apptelem;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
     private Button boton1;
     private Button boton2;
     private  static Usuario appUser;
+    private static String PathToSave;
+
+    public static String getPathToSave() {
+        return PathToSave;
+    }
+
+    public static void setPathToSave(String pathToSave) {
+        PathToSave = pathToSave;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,21 +43,34 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //COMPROBAR SI EXISTE EL OBJETO DEL USUARIO, O CREARLO
-        File file = new File("APPtelemUsuario");
+        PathToSave = "APPtelemUsuario";
+        File file = new File(PathToSave);
 
         // si existe, loadear el usuario
         if(file.exists()) {
+
+
+
+            Usuario newUser = null;
+            FileInputStream inStream = null;
             try {
-                FileInputStream fis = openFileInput("APPtelemUsuario");
-                ObjectInputStream ois = new ObjectInputStream(fis);
-                appUser = (Usuario) ois.readObject();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                File f = new File(Environment.getExternalStorageDirectory(), "/data.dat");
+                inStream = new FileInputStream(f);
+                ObjectInputStream objectInStream = new ObjectInputStream(inStream);
+
+                newUser = ((Usuario) objectInStream.readObject());
+                objectInStream.close();
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            } catch (ClassNotFoundException e1) {
+                e1.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
+
+
+
+
         }
         //Do something
         else{

@@ -63,6 +63,10 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
                 bundle.putString ("curSemestre", ""+items.get(i).getSemestre());
                 bundle.putString ("curCreditos", ""+ items.get(i).getCreditos());
                 bundle.putInt ("curRama", items.get(i).getRama());
+                bundle.putInt ("curEstado", items.get(i).getEstado());
+                System.out.println("EStado: "+items.get(i).getEstado());
+                bundle.putFloat("curNota", items.get(i).getCalificacion());
+                bundle.putInt("curID", items.get(i).getID());
 
                 Intent iconIntent = new Intent(v.getContext(), DetailAsignatura.class);
                 iconIntent.putExtras(bundle);

@@ -1,6 +1,7 @@
 package es.upv.pepelauraeloy.apptelem;
 
 import android.content.Context;
+import android.os.Environment;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -130,16 +131,18 @@ public class Usuario implements Serializable {
 
     public static void guardar (){
         Usuario usuarioGuardar = MainActivity.getAppUser();
+
+        FileOutputStream outStream = null;
         try {
-            FileOutputStream fileOut = new FileOutputStream("APPtelemUsuario");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(usuarioGuardar);
-            out.close();
-            fileOut.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            File f = new File(Environment.getExternalStorageDirectory(), "/data.dat");
+            outStream = new FileOutputStream(f);
+            ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
+            objectOutStream.writeObject(usuarioGuardar);
+            objectOutStream.close();
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
         }
 
 
