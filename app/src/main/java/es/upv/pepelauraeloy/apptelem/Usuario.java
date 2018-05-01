@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -130,20 +131,33 @@ public class Usuario implements Serializable {
     }
 
     public static void guardar (){
+        System.out.println("Guardando usuario");
         Usuario usuarioGuardar = MainActivity.getAppUser();
 
-        FileOutputStream outStream = null;
+        String fileName= MainActivity.getPathToSave();
+        FileOutputStream fos = null;
         try {
-            File f = new File(Environment.getExternalStorageDirectory(), "/data.dat");
-            outStream = new FileOutputStream(f);
-            ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
-            objectOutStream.writeObject(usuarioGuardar);
-            objectOutStream.close();
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        } catch (IOException e1) {
-            e1.printStackTrace();
+            fos = new FileOutputStream(fileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(fos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            oos.writeObject(usuarioGuardar);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Usuario guardado");
 
 
     }

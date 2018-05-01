@@ -43,23 +43,21 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //COMPROBAR SI EXISTE EL OBJETO DEL USUARIO, O CREARLO
-        PathToSave = "APPtelemUsuario";
-        File file = new File(PathToSave);
+
+        File file = new File(getApplicationContext().getFilesDir(), "APPtelemUser");
+        PathToSave = file.getAbsolutePath().toString();
 
         // si existe, loadear el usuario
         if(file.exists()) {
-
-
-
+            System.out.println("El usuario existe, cargando");
             Usuario newUser = null;
             FileInputStream inStream = null;
             try {
-                File f = new File(Environment.getExternalStorageDirectory(), "/data.dat");
-                inStream = new FileInputStream(f);
+                inStream = new FileInputStream(file);
                 ObjectInputStream objectInStream = new ObjectInputStream(inStream);
-
                 newUser = ((Usuario) objectInStream.readObject());
                 objectInStream.close();
+                appUser = newUser;
             } catch (FileNotFoundException e1) {
                 e1.printStackTrace();
             } catch (ClassNotFoundException e1) {
@@ -74,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         }
         //Do something
         else{
+            System.out.println("El usuario no existe, creando y guardando uno nuevo");
             //si no existe, crear un usuario nuevo y guardarlo
             appUser = new Usuario ();
             Usuario.guardar();
