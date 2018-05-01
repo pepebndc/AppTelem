@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/ligthBlue"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp"
     tools:showIn="@layout/activity_main">
@@ -30,15 +31,20 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:textSize="40dp"
+        android:textColor="@color/colorPrimary"
         android:text="BIENVENIDO" />
 
     <Button
         android:id="@+id/boton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
+        android:layout_marginBottom="135dp"
+        android:background="@color/colorAccent"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
         android:text="Abrir estadisticas" />
 
     <Button
@@ -46,8 +52,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/boton1"
-        android:layout_marginBottom="112dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@color/colorAccent"
+        android:padding="10dp"
         android:text="Abrir asignaturas" />
 
 </RelativeLayout>

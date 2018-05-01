@@ -10,4 +10,5 @@
     <color name="Aprobado">#4caf50</color>
     <color name="Suspenso">#f44336</color>
     <color name="Pendiente">#2196F3</color>
+    <color name="lightgray">#ededed</color>
 </resources>

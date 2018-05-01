@@ -57,51 +57,52 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
     }
 
     @Override
-    public void onBindViewHolder (AsignaturaViewHolder viewHolder, final int i){
+    public void onBindViewHolder (AsignaturaViewHolder viewHolder, final int i) {
         viewHolder.nombre.setText(items.get(i).getNombre());
-        viewHolder.creditos.setText("Créditos: "+ items.get(i).getCreditos());
-        viewHolder.semestre.setText("Semestre: "+ items.get(i).getSemestre());
+        viewHolder.creditos.setText("Créditos: " + items.get(i).getCreditos());
+        viewHolder.semestre.setText("Semestre: " + items.get(i).getSemestre());
 
 
         //Poner colores:
         //Side: Verde aprobado, Rojo suspendido, Azul interesado
         //Tarjeta: Transparente general, 1-Rojo, 2-Verde, 3-Lila, 4-Azul
-        switch (items.get(i).getRama()){
-            case 0:{
+        switch (items.get(i).getRama()) {
+            case 0: {
                 break;
             }
-            case 1:{
+            case 1: {
                 viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#ffebee"));
                 break;
             }
-            case 2:{
+            case 2: {
                 viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#f1f8e9"));
                 break;
             }
-            case 3:{
+            case 3: {
                 viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#f3e5f5"));
                 break;
             }
-            case 4:{
+            case 4: {
                 viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#e1f5fe"));
                 break;
             }
         }
 
         //Si interesado, color Azul
-        if(items.get(i).getEstado()==1){
+        if (items.get(i).getEstado() == 1) {
             viewHolder.side.setBackgroundColor(Color.parseColor("#2196F3"));
         }
 
         //Si aprobado, color Verde
-        if(items.get(i).getEstado()==2 && items.get(i).getCalificacion()>=5){
+        if (items.get(i).getEstado() == 2 && items.get(i).getCalificacion() >= 5) {
             viewHolder.side.setBackgroundColor(Color.parseColor("#4caf50"));
         }
 
         //Si suspenso, color Rojo
-        if(items.get(i).getEstado()==2 && items.get(i).getCalificacion()<5){
+        if (items.get(i).getEstado() == 2 && items.get(i).getCalificacion() < 5) {
             viewHolder.side.setBackgroundColor(Color.parseColor("#f44336"));
         }
+
 
 
         viewHolder.asignaturaCardView.setOnClickListener(new View.OnClickListener() {
