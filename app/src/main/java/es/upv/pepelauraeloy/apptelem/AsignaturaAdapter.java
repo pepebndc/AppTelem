@@ -1,12 +1,14 @@
 package es.upv.pepelauraeloy.apptelem;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -20,6 +22,9 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
         public TextView nombre;
         public TextView creditos;
         public TextView semestre;
+        public LinearLayout card;
+        public LinearLayout side;
+
 
         public AsignaturaViewHolder(View v){
             super(v);
@@ -27,6 +32,8 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
             nombre = (TextView) v.findViewById(R.id.asignatura_Nombre);
             creditos = (TextView) v.findViewById(R.id.asignatura_Creditos);
             semestre = (TextView) v.findViewById(R.id.asignatura_Semestre);
+            card = (LinearLayout) v.findViewById(R.id.detail_card);
+            side = (LinearLayout) v.findViewById(R.id.detail_side);
         }
     }
 
@@ -55,6 +62,48 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
         viewHolder.creditos.setText("Créditos: "+ items.get(i).getCreditos());
         viewHolder.semestre.setText("Semestre: "+ items.get(i).getSemestre());
 
+
+        //Poner colores:
+        //Side: Verde aprobado, Rojo suspendido, Azul interesado
+        //Tarjeta: Transparente general, 1-Rojo, 2-Verde, 3-Lila, 4-Azul
+        switch (items.get(i).getRama()){
+            case 0:{
+                break;
+            }
+            case 1:{
+                viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#ffebee"));
+                break;
+            }
+            case 2:{
+                viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#f1f8e9"));
+                break;
+            }
+            case 3:{
+                viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#f3e5f5"));
+                break;
+            }
+            case 4:{
+                viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#e1f5fe"));
+                break;
+            }
+        }
+
+        //Si interesado, color Azul
+        if(items.get(i).getEstado()==1){
+            viewHolder.side.setBackgroundColor(Color.parseColor("#2196F3"));
+        }
+
+        //Si aprobado, color Verde
+        if(items.get(i).getEstado()==2 && items.get(i).getCalificacion()>=5){
+            viewHolder.side.setBackgroundColor(Color.parseColor("#4caf50"));
+        }
+
+        //Si suspenso, color Rojo
+        if(items.get(i).getEstado()==2 && items.get(i).getCalificacion()<5){
+            viewHolder.side.setBackgroundColor(Color.parseColor("#f44336"));
+        }
+
+
         viewHolder.asignaturaCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +120,7 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
                 Intent iconIntent = new Intent(v.getContext(), DetailAsignatura.class);
                 iconIntent.putExtras(bundle);
                 v.getContext().startActivity(iconIntent);
+
             }
         });
 

@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3399ff</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff9800</color>
+    <color name="ligthGreen">#f1f8e9</color>
+    <color name="lightRed">#ffebee</color>
+    <color name="ligthBlue">#e1f5fe</color>
+    <color name="ligthPurple">#f3e5f5</color>
+    <color name="Aprobado">#4caf50</color>
+    <color name="Suspenso">#f44336</color>
+    <color name="Pendiente">#2196F3</color>
 </resources>

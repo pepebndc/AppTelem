@@ -14,7 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/cardview_light_background"
+        android:id="@+id/detail_card">
+
+        <LinearLayout
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_light_background"
+            android:orientation="vertical"
+            android:id="@+id/detail_side"></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,6 +58,8 @@
                 android:id="@+id/asignatura_Semestre"/>
 
         </LinearLayout>
+
+
     </LinearLayout>
 
 
