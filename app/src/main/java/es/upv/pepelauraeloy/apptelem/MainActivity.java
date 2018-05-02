@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button boton1;
     private Button boton2;
-    private  static Usuario appUser;
+    private static Usuario appUser;
     private static String PathToSave;
+    private static int controlRama;
 
     public static String getPathToSave() {
         return PathToSave;
@@ -33,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
 
     public static void setPathToSave(String pathToSave) {
         PathToSave = pathToSave;
+    }
+
+    public static int getControlRama() {
+        return controlRama;
+    }
+
+    public static void setControlRama(int controlRama) {
+        MainActivity.controlRama = controlRama;
     }
 
     @Override
