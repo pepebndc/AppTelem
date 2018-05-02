@@ -58,6 +58,7 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
 
     @Override
     public void onBindViewHolder (AsignaturaViewHolder viewHolder, final int i) {
+        System.out.println("Asignatura: " + items.get(i).getNombre()+"; " + items.get(i).getRama()+"; "+ items.get(i).getEstado());
         viewHolder.nombre.setText(items.get(i).getNombre());
         viewHolder.creditos.setText("Créditos: " + items.get(i).getCreditos());
         viewHolder.semestre.setText("Semestre: " + items.get(i).getSemestre());
@@ -66,26 +67,32 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
         //Poner colores:
         //Side: Verde aprobado, Rojo suspendido, Azul interesado
         //Tarjeta: Transparente general, 1-Rojo, 2-Verde, 3-Lila, 4-Azul
-        switch (items.get(i).getRama()) {
-            case 0: {
-                break;
-            }
-            case 1: {
-                viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#ffebee"));
-                break;
-            }
-            case 2: {
-                viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#f1f8e9"));
-                break;
-            }
-            case 3: {
-                viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#f3e5f5"));
-                break;
-            }
-            case 4: {
-                viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#e1f5fe"));
-                break;
-            }
+        int intRama = items.get(i).getRama();
+
+        /*
+        if(intRama==0){
+            viewHolder.asignaturaCardView.setCardBackgroundColor(Color.parseColor("#ededed"));
+        }
+        if(intRama==1){
+            viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#ffebee"));
+        }
+        if(intRama==2){
+            viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#f1f8e9"));
+        }
+        if(intRama==3){
+            viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#f3e5f5"));
+        }
+        if(intRama==4){
+            viewHolder.asignaturaCardView.setBackgroundColor(Color.parseColor("#e1f5fe"));
+        }
+
+        System.out.println("Color de tarjeta: "+ viewHolder.asignaturaCardView.getCardBackgroundColor().toString());
+
+        */
+
+        //Nada = Gris
+        if(items.get(i).getEstado() ==0){
+            viewHolder.side.setBackgroundColor(Color.parseColor("#ededed"));
         }
 
         //Si interesado, color Azul
