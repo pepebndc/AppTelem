@@ -25,6 +25,7 @@
         android:weightSum="1">
 
         <ProgressBar
+            android:id="@+id/plan_progress_total"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -35,6 +36,7 @@
             android:max="100"/>
 
         <TextView
+            android:id="@+id/plan_percentaje_total"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
@@ -64,6 +66,7 @@
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/plan_creditos_troncal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -72,16 +75,19 @@
             android:text="Créditos XX/120: "/>
 
         <ProgressBar
+            android:id="@+id/plan_progress_troncal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="10dp"
             android:layout_weight="0.4"
+            android:theme="@style/LinearProgress"
             style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
             android:progress="45"
             android:max="100"/>
 
         <TextView
+            android:id="@+id/plan_percentaje_troncal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
@@ -113,6 +119,7 @@
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/plan_creditos_especialidad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -121,6 +128,7 @@
             android:text="Créditos XX/120: "/>
 
         <ProgressBar
+            android:id="@+id/plan_progress_especialidad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -131,6 +139,7 @@
             android:max="100"/>
 
         <TextView
+            android:id="@+id/plan_porcentaje_especialidad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
@@ -163,6 +172,7 @@
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/plan_creditos_optativos_total"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -171,6 +181,7 @@
             android:text="Créditos XX/120: "/>
 
         <ProgressBar
+            android:id="@+id/plan_progress_optativo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -181,6 +192,7 @@
             android:max="100"/>
 
         <TextView
+            android:id="@+id/plan_percentaje_optativo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
@@ -232,16 +244,19 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/plan_creditos_optativos_asignatura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="XX Créditos"/>
 
             <TextView
+                android:id="@+id/plan_creditos_optativos_extra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="XX Créditos"/>
 
             <TextView
+                android:id="@+id/plan_creditos_optativos_empresa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="XX Créditos"/>
@@ -252,6 +267,7 @@
 
 
     <Button
+        android:id="@+id/plan_boton_addCreditos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="AÑADIR CRÉDITOS OPTATIVOS"
@@ -278,6 +294,7 @@
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/plan_tfg_Estado"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -288,6 +305,7 @@
             android:text="ESTADOOOO "/>
 
         <Button
+            android:id="@+id/plan_tfg_Boton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
