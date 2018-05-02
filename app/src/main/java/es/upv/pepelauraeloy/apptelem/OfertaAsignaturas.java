@@ -171,7 +171,9 @@ public class OfertaAsignaturas extends AppCompatActivity {
 
             //mostrar todas
             if (MainActivity.getControlRama() == 5) {
-                mostrar.add(a);
+                if(a.getRama() != 5){
+                    mostrar.add(a);
+                }
             }
         }
         adapter = new AsignaturaAdapter(mostrar);

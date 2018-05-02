@@ -116,7 +116,7 @@ public class Usuario implements Serializable {
         listaAsignaturas.add( new Asignatura (12442, "SMULTI - Sistemas multimedia", 4, 4.5 , 0, 0, 8));
         listaAsignaturas.add( new Asignatura (12447, "COMDAT - Comunicación de datos", 4, 6 , 0, 0, 5));
         listaAsignaturas.add( new Asignatura (12446, "SEGURI - Seguridad", 4, 6 , 0, 0, 7));
-        listaAsignaturas.add( new Asignatura (12483, "TFG - Trabajo de fin de grado", 0, 12 , 0, 0, 8));
+        listaAsignaturas.add( new Asignatura (12483, "TFG - Trabajo de fin de grado", 5, 12 , 0, 0, 8));
 
         asignaturas = listaAsignaturas;
 
