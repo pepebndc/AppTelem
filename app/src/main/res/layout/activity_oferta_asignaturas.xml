@@ -7,11 +7,76 @@
     android:layout_height="match_parent"
     tools:context=".OfertaAsignaturas">
 
-    <android.support.v7.widget.RecyclerView
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:id="@+id/reciclador"
-        android:padding="10dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Todas"
+                android:id="@+id/asignaturas_boton_todas"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Troncales"
+                android:id="@+id/asignaturas_boton_troncales"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="0.25"
+                android:layout_height="60dp"
+                android:text="Sistemas"
+                android:id="@+id/asignaturas_boton_sistemas"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="0.25"
+                android:layout_height="60dp"
+                android:text="Elect."
+                android:id="@+id/asignaturas_boton_electronica"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="0.25"
+                android:layout_height="60dp"
+                android:text="Sonido"
+                android:id="@+id/asignaturas_boton_sonido"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="0.25"
+                android:layout_height="60dp"
+                android:text="Telem."
+                android:id="@+id/asignaturas_boton_telematica"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            xmlns:android = "http://schemas.android.com/apk/res/android"
+            android:id="@+id/reciclador"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>
