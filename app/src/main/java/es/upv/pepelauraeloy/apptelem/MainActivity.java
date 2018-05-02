@@ -22,8 +22,9 @@ import java.io.ObjectInputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button boton1;
-    private Button boton2;
+    private Button boton_Estadisticas;
+    private Button boton_Asignaturas;
+    private Button boton_Plan;
     private static Usuario appUser;
     private static String PathToSave;
     private static int controlRama;
@@ -89,19 +90,27 @@ public class MainActivity extends AppCompatActivity {
         // Do something else.
 
 
-        boton1 = (Button) findViewById(R.id.boton1);
-        boton1.setOnClickListener(new View.OnClickListener() {
+        boton_Estadisticas = (Button) findViewById(R.id.main_boton_estadisticas);
+        boton_Estadisticas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openEstadisticas();
             }
         });
 
-        boton2 = (Button) findViewById(R.id.boton2);
-        boton2.setOnClickListener(new View.OnClickListener() {
+        boton_Asignaturas = (Button) findViewById(R.id.main_boton_asignaturas);
+        boton_Asignaturas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAsignaturas();
+            }
+        });
+
+        boton_Plan = (Button) findViewById(R.id.main_boton_plan);
+        boton_Plan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlan();
             }
         });
 
@@ -115,6 +124,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openAsignaturas(){
         Intent intent = new Intent(this, OfertaAsignaturas.class);
+        startActivity(intent);
+    }
+
+    public void openPlan(){
+        Intent intent = new Intent(this, Plan.class);
         startActivity(intent);
     }
 

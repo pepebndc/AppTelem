@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:background="@color/ligthBlue"
+    android:orientation="vertical"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp"
     tools:showIn="@layout/activity_main">
@@ -30,32 +31,51 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:textSize="40dp"
         android:textColor="@color/colorPrimary"
         android:text="BIENVENIDO" />
 
     <Button
-        android:id="@+id/boton1"
-        android:layout_width="wrap_content"
+        android:id="@+id/main_boton_plan"
+        android:layout_width="match_parent"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="135dp"
+        android:background="@color/colorAccent"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="Plan de estudios" />
+
+    <Button
+        android:id="@+id/main_boton_estadisticas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
         android:gravity="center_horizontal"
         android:padding="10dp"
         android:text="Abrir estadisticas" />
 
     <Button
-        android:id="@+id/boton2"
-        android:layout_width="wrap_content"
+        android:id="@+id/main_boton_asignaturas"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
         android:background="@color/colorAccent"
         android:padding="10dp"
         android:text="Abrir asignaturas" />
 
-</RelativeLayout>
+</LinearLayout>
