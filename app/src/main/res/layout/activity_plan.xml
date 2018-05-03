@@ -33,9 +33,11 @@
                 style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:scaleY="2"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_weight="0.90"
+
+                android:layout_weight="0.85"
                 android:max="100"
                 android:progress="45" />
 
@@ -43,9 +45,9 @@
                 android:id="@+id/plan_percentaje_total"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_weight="0.1"
+                android:layout_weight="0.15"
                 android:text="45%" />
         </LinearLayout>
 
@@ -75,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_weight="0.5"
+                android:layout_weight="0.45"
                 android:text="Créditos XX/120: " />
 
             <ProgressBar
@@ -87,8 +89,7 @@
                 android:layout_marginVertical="10dp"
                 android:layout_weight="0.4"
                 android:max="100"
-                android:progress="45"
-                android:theme="@style/LinearProgress" />
+                android:progress="45"/>
 
             <TextView
                 android:id="@+id/plan_percentaje_troncal"
@@ -96,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_weight="0.1"
+                android:layout_weight="0.15"
                 android:text="45%" />
 
         </LinearLayout>
@@ -128,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_weight="0.5"
+                android:layout_weight="0.45"
                 android:text="Créditos XX/120: " />
 
             <ProgressBar
@@ -148,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_weight="0.1"
+                android:layout_weight="0.15"
                 android:text="45%" />
 
         </LinearLayout>
@@ -180,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_weight="0.5"
+                android:layout_weight="0.45"
                 android:text="Créditos XX/120: " />
 
             <ProgressBar
@@ -200,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:layout_weight="0.1"
+                android:layout_weight="0.15"
                 android:text="45%" />
 
         </LinearLayout>

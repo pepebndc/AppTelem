@@ -1,7 +1,10 @@
 package es.upv.pepelauraeloy.apptelem;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,6 +34,7 @@ public class Plan extends AppCompatActivity {
     private TextView creditosOptativosEmpresa;
 
     private TextView estadoTFG;
+    Asignatura aTFG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,8 @@ public class Plan extends AppCompatActivity {
 
         //Hacer cosas
 
+
+
         //Cálculo de creditos superados
 
         double creditosTotal=0;
@@ -82,6 +88,9 @@ public class Plan extends AppCompatActivity {
         while (it.hasNext()) {
             Asignatura a = it.next();
 
+            if (a.getNombre().contains("Trabajo de fin de grado")){
+                aTFG = a;
+            }
             if (a.getRama() == 0) {
                 creditosTroncal = creditosTroncal + a.getCreditos();
                 if(a.getEstado()==2 && a.getCalificacion()>=5){
@@ -130,20 +139,71 @@ public class Plan extends AppCompatActivity {
 
         //Créditos totales
 
-        creditosTotal = creditosTotal + creditosElectronica + creditosSistemas + creditosSonido + creditosTelematica + creditosTroncal;
+
         creditosTotalsuperados = creditosTotalsuperados + creditosTelematicasuperados + creditosSonidosuperados + creditosElectronicasuperados + creditosSistemassuperados + creditosTroncalsuperados;
         System.out.println("Total superados: " + creditosTotalsuperados);
         double ratioTotal = 100 * creditosTotalsuperados / 240.0;
+
+
         System.out.println("Ratio: " + ratioTotal);
         progressTotal.setProgress((int)ratioTotal);
-        percentajeTotal.setText(Double.toString(ratioTotal).substring(0,1)+ "%");
+        percentajeTotal.setText(Double.toString(ratioTotal).substring(0,4)+ "%");
 
 
         //Creditos troncales
         double ratioTroncal = 100 * creditosTroncalsuperados/creditosTroncal;
         progressTroncal.setProgress((int)ratioTroncal);
-        percentajeTroncal.setText(Double.toString(ratioTroncal).substring(0,1) + "%");
+        percentajeTroncal.setText(Double.toString(ratioTroncal).substring(0,4) + "%");
         creditosTroncalText.setText("Créditos : "+Double.toString(creditosTroncalsuperados)+"/"+creditosTroncal);
+
+
+
+
+        //Estado del TFG
+
+        if(aTFG.getEstado()==0 || aTFG.getEstado()==1){
+            estadoTFG.setText("PENDIENTE");
+            estadoTFG.setTextColor(Color.parseColor("#2196F3"));
+        }
+        if(aTFG.getEstado()==2 && aTFG.getCalificacion()>=5){
+            estadoTFG.setText("¡¡APROBADO!!");
+            estadoTFG.setTextColor(Color.parseColor("#4caf50"));
+        }
+        if(aTFG.getEstado()==2 && aTFG.getCalificacion()<5){
+            estadoTFG.setText("SUSPENDIDO");
+            estadoTFG.setTextColor(Color.parseColor("#f44336"));
+        }
+
+
+        botonTFG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle = new Bundle();
+                bundle.putString ("curNombre", aTFG.getNombre());
+                bundle.putString ("curSemestre", ""+aTFG.getSemestre());
+                bundle.putString ("curCreditos", ""+ aTFG.getCreditos());
+                bundle.putInt ("curRama", aTFG.getRama());
+                bundle.putInt ("curEstado", aTFG.getEstado());
+                System.out.println("EStado: "+aTFG.getEstado());
+                bundle.putFloat("curNota", aTFG.getCalificacion());
+                bundle.putInt("curID", aTFG.getID());
+
+                Intent iconIntent = new Intent(v.getContext(), DetailAsignatura.class);
+                iconIntent.putExtras(bundle);
+                v.getContext().startActivity(iconIntent);
+                finish();
+            }
+        });
+
+        botonAddOptativo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(v.getContext(), AddOptativo.class);
+                v.getContext().startActivity(newIntent);
+                finish();
+            }
+        });
 
 
 

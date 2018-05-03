@@ -34,7 +34,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.upv.pepelauraeloy.apptelem.OfertaAsignaturas" />
         </activity>
-        <activity android:name=".Plan"></activity>
+        <activity android:name=".Plan" />
+        <activity android:name=".AddOptativo"></activity>
     </application>
 
 </manifest>
