@@ -34,6 +34,7 @@ public class Plan extends AppCompatActivity {
     private TextView creditosOptativosEmpresa;
 
     private TextView estadoTFG;
+    private TextView textoEspecialidad;
     Asignatura aTFG;
 
     @Override
@@ -63,6 +64,8 @@ public class Plan extends AppCompatActivity {
         creditosOptativosExtra = (TextView) findViewById(R.id.plan_creditos_optativos_extra);
 
         estadoTFG = (TextView) findViewById(R.id.plan_tfg_Estado);
+
+
 
         //Hacer cosas
 
@@ -147,17 +150,53 @@ public class Plan extends AppCompatActivity {
 
         System.out.println("Ratio: " + ratioTotal);
         progressTotal.setProgress((int)ratioTotal);
-        percentajeTotal.setText(Double.toString(ratioTotal).substring(0,4)+ "%");
+        percentajeTotal.setText(String.valueOf((int)ratioTotal)+ "%");
 
 
         //Creditos troncales
         double ratioTroncal = 100 * creditosTroncalsuperados/creditosTroncal;
         progressTroncal.setProgress((int)ratioTroncal);
-        percentajeTroncal.setText(Double.toString(ratioTroncal).substring(0,4) + "%");
+        percentajeTroncal.setText(String.valueOf((int)ratioTroncal) + "%");
         creditosTroncalText.setText("Créditos : "+Double.toString(creditosTroncalsuperados)+"/"+creditosTroncal);
 
 
 
+        //Créditos de especialidad
+
+        double [] ramasCreditos = new double [4];
+        ramasCreditos[1] = creditosSistemassuperados;
+        ramasCreditos[2] = creditosElectronicasuperados;
+        ramasCreditos[3] = creditosSonidosuperados;
+        ramasCreditos[4] = creditosTelematicasuperados;
+
+        double max =0;
+        int RamaEspecialidad = 0;
+
+        for ( int i=0; i<ramasCreditos.length; i++){
+            if(ramasCreditos[i]>max){
+                RamaEspecialidad = i;
+            }
+        }
+
+        if(RamaEspecialidad==1){
+
+        }
+
+
+
+
+        //Créditos optativos
+        double Copt = MainActivity.getAppUser().getCreditosExtra();
+        if(Copt>6){
+            Copt = 6;
+        }
+        creditosOptativosExtra.setText(Copt + " Créditos");
+
+        double Cemp = MainActivity.getAppUser().getCreditosPracticas();
+        if(Copt>18){
+            Copt = 18;
+        }
+        creditosOptativosEmpresa.setText(Cemp + " Créditos");
 
         //Estado del TFG
 

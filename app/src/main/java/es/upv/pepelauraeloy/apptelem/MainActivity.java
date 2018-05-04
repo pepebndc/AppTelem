@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button boton_Estadisticas;
     private Button boton_Asignaturas;
     private Button boton_Plan;
+    private Button nuevoUsuario;
     private static Usuario appUser;
     private static String PathToSave;
     private static int controlRama;
@@ -114,6 +115,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        nuevoUsuario = (Button) findViewById(R.id.main_newUser);
+        nuevoUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Crear un usuario nuevo y guardarlo
+                appUser = new Usuario ();
+                Usuario.guardar();
+
+            }
+        });
+
 
     }
 
@@ -146,5 +158,13 @@ public class MainActivity extends AppCompatActivity {
 
     public static void setAppUser(Usuario appUser1) {
         appUser = appUser1;
+    }
+
+    public Button getNuevoUsuario() {
+        return nuevoUsuario;
+    }
+
+    public void setNuevoUsuario(Button nuevoUsuario) {
+        this.nuevoUsuario = nuevoUsuario;
     }
 }

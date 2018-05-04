@@ -1,41 +1,45 @@
 package es.upv.pepelauraeloy.apptelem;
 
-import android.content.Context;
-import android.os.Environment;
-
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.FileOutputStream;
 
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 5950169519310163575L;
 
     private ArrayList<Asignatura> asignaturas;
 
-    public String getNombre() {
-        return Nombre;
+    public double getCreditosPracticas() {
+        return CreditosPracticas;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setCreditosPracticas(double creditosPracticas) {
+        CreditosPracticas = creditosPracticas;
     }
 
-    private String Nombre;
+    public double getCreditosExtra() {
+        return CreditosExtra;
+    }
+
+    public void setCreditosExtra(double creditosExtra) {
+        CreditosExtra = creditosExtra;
+    }
+
+    private double CreditosExtra;
+    private double CreditosPracticas;
+    private double NotaPracticas;
+
 
     public Usuario() {
         //Creación de un usuario por defecto
+
+        CreditosExtra = 0;
+        CreditosPracticas=0;
+        setNotaPracticas(0);
 
         ArrayList<Asignatura> listaAsignaturas = new ArrayList<Asignatura>();
 
@@ -160,5 +164,13 @@ public class Usuario implements Serializable {
         System.out.println("Usuario guardado");
 
 
+    }
+
+    public double getNotaPracticas() {
+        return NotaPracticas;
+    }
+
+    public void setNotaPracticas(double notaPracticas) {
+        NotaPracticas = notaPracticas;
     }
 }
