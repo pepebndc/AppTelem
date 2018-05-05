@@ -41,6 +41,16 @@ public class Plan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ejecutar();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ejecutar();
+    }
+
+    public void ejecutar(){
         setContentView(R.layout.activity_plan);
 
         //Identificar los objetos con ID
@@ -314,7 +324,7 @@ public class Plan extends AppCompatActivity {
                 Intent iconIntent = new Intent(v.getContext(), DetailAsignatura.class);
                 iconIntent.putExtras(bundle);
                 v.getContext().startActivity(iconIntent);
-                finish();
+
             }
         });
 
@@ -323,14 +333,9 @@ public class Plan extends AppCompatActivity {
             public void onClick(View v) {
                 Intent newIntent = new Intent(v.getContext(), AddOptativo.class);
                 v.getContext().startActivity(newIntent);
-                finish();
+
             }
         });
-
-
-
-
-
     }
 
     public ProgressBar getProgressTotal() {

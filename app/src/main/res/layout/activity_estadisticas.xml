@@ -22,7 +22,6 @@
 
 
             <android.support.v7.widget.CardView
-                android:id="@+id/estadisticas_mediaTotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -39,7 +38,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Media Total"
+                        android:text="Media Total Ponderada"
                         android:textStyle="bold" />
 
                     <View
@@ -49,6 +48,7 @@
                         android:background="@color/lightgray" />
 
                     <TextView
+                        android:id="@+id/estadisticas_mediaTotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Nota media separada en semestres:"
+                android:text="Nota media ponderada separada en semestres:"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -88,7 +88,7 @@
                     android:orientation="vertical">
 
                     <android.support.v7.widget.CardView
-                        android:id="@+id/estadisticas_S12"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -115,6 +115,7 @@
                                 android:background="@color/lightgray" />
 
                             <TextView
+                                android:id="@+id/estadisticas_S12"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -126,7 +127,6 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
-                        android:id="@+id/estadisticas_S56"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -153,6 +153,7 @@
                                 android:background="@color/lightgray" />
 
                             <TextView
+                                android:id="@+id/estadisticas_S56"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -173,7 +174,7 @@
                     android:orientation="vertical">
 
                     <android.support.v7.widget.CardView
-                        android:id="@+id/estadisticas_S34"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -200,6 +201,7 @@
                                 android:background="@color/lightgray" />
 
                             <TextView
+                                android:id="@+id/estadisticas_S34"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -211,7 +213,6 @@
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
-                        android:id="@+id/estadisticas_S78"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -238,6 +239,7 @@
                                 android:background="@color/lightgray" />
 
                             <TextView
+                                android:id="@+id/estadisticas_S78"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -253,6 +255,8 @@
 
             </LinearLayout>
 
+            <!--
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -267,7 +271,7 @@
                 android:textStyle="bold" />
 
             <android.support.v7.widget.CardView
-                android:id="@+id/estadisticas_creditosTotal"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -294,6 +298,7 @@
                         android:background="@color/lightgray" />
 
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -484,6 +489,14 @@
 
 
             </LinearLayout>
+            -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="**Si ves en alguna estadística NaN, significa que no has cursado ninguna asignatura de ese bloque, por lo que no podemos mostrar la media ponderada."
+                android:textStyle="italic"
+                android:layout_margin="10dp"/>
         </LinearLayout>
 
     </RelativeLayout>

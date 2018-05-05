@@ -45,8 +45,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_marginVertical="10dp"
+                android:layout_marginVertical="5dp"
                 android:layout_weight="0.15"
+                android:textSize="20dp"
                 android:text="45%" />
         </LinearLayout>
 
@@ -94,7 +95,7 @@
                 android:id="@+id/plan_percentaje_troncal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginVertical="10dp"
                 android:layout_weight="0.15"
                 android:text="45%" />
@@ -148,7 +149,7 @@
                 android:id="@+id/plan_porcentaje_especialidad"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginVertical="10dp"
                 android:layout_weight="0.15"
                 android:text="45%" />
@@ -200,7 +201,7 @@
                 android:id="@+id/plan_percentaje_optativo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginVertical="10dp"
                 android:layout_weight="0.15"
                 android:text="45%" />
