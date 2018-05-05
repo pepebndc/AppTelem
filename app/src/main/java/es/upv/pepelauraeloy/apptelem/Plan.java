@@ -64,6 +64,7 @@ public class Plan extends AppCompatActivity {
         creditosOptativosExtra = (TextView) findViewById(R.id.plan_creditos_optativos_extra);
 
         estadoTFG = (TextView) findViewById(R.id.plan_tfg_Estado);
+        textoEspecialidad = (TextView) findViewById(R.id.plan_nombre_especialidad);
 
 
 
@@ -143,7 +144,7 @@ public class Plan extends AppCompatActivity {
         //Créditos totales
 
 
-        creditosTotalsuperados = creditosTotalsuperados + creditosTelematicasuperados + creditosSonidosuperados + creditosElectronicasuperados + creditosSistemassuperados + creditosTroncalsuperados;
+        creditosTotalsuperados = creditosTotalsuperados + creditosTelematicasuperados + creditosSonidosuperados + creditosElectronicasuperados + creditosSistemassuperados + creditosTroncalsuperados + MainActivity.getAppUser().getCreditosExtra() + MainActivity.getAppUser().getCreditosPracticas();
         System.out.println("Total superados: " + creditosTotalsuperados);
         double ratioTotal = 100 * creditosTotalsuperados / 240.0;
 
@@ -164,10 +165,10 @@ public class Plan extends AppCompatActivity {
         //Créditos de especialidad
 
         double [] ramasCreditos = new double [4];
-        ramasCreditos[1] = creditosSistemassuperados;
-        ramasCreditos[2] = creditosElectronicasuperados;
-        ramasCreditos[3] = creditosSonidosuperados;
-        ramasCreditos[4] = creditosTelematicasuperados;
+        ramasCreditos[0] = creditosSistemassuperados;
+        ramasCreditos[1] = creditosElectronicasuperados;
+        ramasCreditos[2] = creditosSonidosuperados;
+        ramasCreditos[3] = creditosTelematicasuperados;
 
         double max =0;
         int RamaEspecialidad = 0;
@@ -178,7 +179,9 @@ public class Plan extends AppCompatActivity {
             }
         }
 
-        if(RamaEspecialidad==1){
+        //Sistemas
+        if(RamaEspecialidad==0){
+            textoEspecialidad.setText("Especialidad : Sistemas de Telecomunicaciones");
 
         }
 

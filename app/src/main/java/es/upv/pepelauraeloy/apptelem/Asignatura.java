@@ -12,7 +12,7 @@ public class Asignatura implements Serializable {
     private int estado;
     private int semestre;
 
-    //Estado: 0=Nada ; 1=quiero hacerla; 2= cursada
+    //Estado: 0=Nada ; 1=quiero hacerla; 2= suspensa; 3=aprobada
 
     public Asignatura(int ID, String nombre, int rama, double creditos, float calificacion, int estado, int semestre) {
         this.ID = ID;

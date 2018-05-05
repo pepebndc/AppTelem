@@ -107,6 +107,10 @@ public class DetailAsignatura extends AppCompatActivity {
                     saveNota = Float.parseFloat(nota.getText().toString());
                 }
 
+                if(saveNota >10){
+                    saveNota = 10;
+                }
+
 
                 //Iterator para buscar la asignatura que es
                 Iterator <Asignatura> it = MainActivity.getAppUser().getAsignaturas().iterator();

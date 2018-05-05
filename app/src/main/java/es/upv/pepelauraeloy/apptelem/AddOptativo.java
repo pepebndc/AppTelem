@@ -23,12 +23,31 @@ public class AddOptativo extends AppCompatActivity {
         practicasNota = (EditText) findViewById(R.id.optativo_practicas_nota);
         extraCreditos = (EditText) findViewById(R.id.optativo_actividades);
 
+        practicasNota.setText(Double.toString(MainActivity.getAppUser().getNotaPracticas()));
+        practicasCreditos.setText(Double.toString(MainActivity.getAppUser().getCreditosPracticas()));
+        extraCreditos.setText(Double.toString(MainActivity.getAppUser().getCreditosExtra()));
+
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.getAppUser().setCreditosExtra(Double.parseDouble(extraCreditos.getText().toString()));
-                MainActivity.getAppUser().setCreditosPracticas(Double.parseDouble(practicasCreditos.getText().toString()));
-                MainActivity.getAppUser().setNotaPracticas(Double.parseDouble(practicasNota.getText().toString()));
+                double saveCreditosExtra = Double.parseDouble(extraCreditos.getText().toString());
+                if(saveCreditosExtra > 6){{
+                    saveCreditosExtra=6;
+                }}
+
+                double saveCreditosPracticas = Double.parseDouble(practicasCreditos.getText().toString());
+                if(saveCreditosPracticas>18){
+                    saveCreditosPracticas=18;
+                }
+
+                double saveNotaPracticas = Double.parseDouble(practicasNota.getText().toString());
+                if(saveNotaPracticas>10){
+                    saveNotaPracticas=10;
+                }
+
+                MainActivity.getAppUser().setCreditosExtra(saveCreditosExtra);
+                MainActivity.getAppUser().setCreditosPracticas(saveCreditosPracticas);
+                MainActivity.getAppUser().setNotaPracticas(saveNotaPracticas);
 
                 Usuario.guardar();
                 finish();
