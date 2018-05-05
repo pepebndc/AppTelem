@@ -1,17 +1,21 @@
 package es.upv.pepelauraeloy.apptelem;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -119,9 +123,35 @@ public class MainActivity extends AppCompatActivity {
         nuevoUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Crear un usuario nuevo y guardarlo
-                appUser = new Usuario ();
-                Usuario.guardar();
+
+                AlertDialog.Builder alertDlg = new AlertDialog.Builder(MainActivity.this);
+                alertDlg.setMessage("¿Seguro que quieres borrar el usuario?\n\nESTA ACCIÓN ES IRREVERSIBLE");
+                alertDlg.setCancelable(false);
+
+                alertDlg.setPositiveButton("Sí, ya no quiero mis notas", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Crear un usuario nuevo y guardarlo
+                        appUser = new Usuario ();
+                        Usuario.guardar();
+
+                        Toast toast1 = Toast.makeText(getApplicationContext(), "Usuario borrado", Toast.LENGTH_SHORT);
+                        toast1.show();
+                    }
+                });
+
+                alertDlg.setNegativeButton("No, me he acojonado", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast toast1 = Toast.makeText(getApplicationContext(), "Ya decía yo...", Toast.LENGTH_SHORT);
+                        toast1.show();
+                    }
+                });
+
+                alertDlg.create().show();
+
+
+
 
             }
         });
