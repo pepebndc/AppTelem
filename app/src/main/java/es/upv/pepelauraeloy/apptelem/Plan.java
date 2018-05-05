@@ -277,6 +277,9 @@ public class Plan extends AppCompatActivity {
         //Créditos totales
 
         creditosTotalsuperados = CtotControl + creditosTroncalsuperados + Cespecialidad;
+        if(aTFG.getEstado()==3){
+            creditosTotalsuperados = creditosTotalsuperados + aTFG.getCreditos();
+        }
         System.out.println("Total superados: " + creditosTotalsuperados);
         double ratioTotal = 100 * creditosTotalsuperados / 240.0;
 

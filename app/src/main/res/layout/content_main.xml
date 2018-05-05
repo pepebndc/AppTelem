@@ -42,7 +42,7 @@
             android:textSize="40dp" />
 
         <Button
-            android:id="@+id/main_boton_plan"
+            android:id="@+id/main_boton_asignaturas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -51,6 +51,19 @@
             android:layout_marginRight="50dp"
             android:layout_marginTop="50dp"
             android:background="@color/colorAccent"
+            android:padding="10dp"
+            android:text="Asignaturas" />
+
+        <Button
+            android:id="@+id/main_boton_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorAccent2"
             android:gravity="center_horizontal"
             android:padding="10dp"
             android:text="Plan de estudios" />
@@ -64,23 +77,12 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="50dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorAccent2"
             android:gravity="center_horizontal"
             android:padding="10dp"
             android:text="Abrir estadisticas" />
 
-        <Button
-            android:id="@+id/main_boton_asignaturas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="50dp"
-            android:background="@color/colorAccent"
-            android:padding="10dp"
-            android:text="Abrir asignaturas" />
+
 
 
 
