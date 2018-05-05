@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class DetailAsignatura extends AppCompatActivity {
     Switch cursada;
     Switch interesado;
     Button botonGuardar;
+    CheckBox forzarAprobada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class DetailAsignatura extends AppCompatActivity {
         cursada = (Switch) findViewById(R.id.detail_cursada);
         interesado = (Switch) findViewById(R.id.detail_proxima_asignatura);
         botonGuardar = (Button) findViewById(R.id.detail_guardar);
+        forzarAprobada = (CheckBox) findViewById(R.id.detail_forzar_aprobado);
 
 
         nombre.setText(getIntent().getExtras().getString("curNombre"));
@@ -83,6 +86,13 @@ public class DetailAsignatura extends AppCompatActivity {
                 interesado.setChecked(true);
                 break;
             }
+            case 3:{
+                cursada.setChecked(true);
+                interesado.setChecked(true);
+                if(getIntent().getExtras().getFloat("curNota")<5){
+                    forzarAprobada.setChecked(true);
+                }
+            }
         }
 
         botonGuardar.setOnClickListener(new View.OnClickListener() {
@@ -92,17 +102,7 @@ public class DetailAsignatura extends AppCompatActivity {
                 int IDasignatura = getIntent().getExtras().getInt("curID");
 
                 //save the data (Estado, nota)
-
-                int saveEstado =0;
-                if(interesado.isChecked()){
-                    saveEstado = 1;
-                }
-                if(cursada.isChecked()){
-                    saveEstado = 2;
-                }
-
                 float saveNota = 0;
-
                 if(!nota.getText().toString().equals("")){
                     saveNota = Float.parseFloat(nota.getText().toString());
                 }
@@ -110,6 +110,22 @@ public class DetailAsignatura extends AppCompatActivity {
                 if(saveNota >10){
                     saveNota = 10;
                 }
+
+                int saveEstado =0;
+                if(interesado.isChecked()){
+                    saveEstado = 1;
+                }
+                if(cursada.isChecked()){
+                    if(saveNota>=5 || forzarAprobada.isChecked() ){
+                        saveEstado=3;
+                    }else{
+                        saveEstado=2;
+                    }
+
+                }
+
+
+
 
 
                 //Iterator para buscar la asignatura que es

@@ -35,6 +35,7 @@ public class Plan extends AppCompatActivity {
 
     private TextView estadoTFG;
     private TextView textoEspecialidad;
+    private TextView nombreTFG;
     Asignatura aTFG;
 
     @Override
@@ -64,6 +65,7 @@ public class Plan extends AppCompatActivity {
         creditosOptativosExtra = (TextView) findViewById(R.id.plan_creditos_optativos_extra);
 
         estadoTFG = (TextView) findViewById(R.id.plan_tfg_Estado);
+        nombreTFG = (TextView) findViewById(R.id.plan_tfg_nombre);
         textoEspecialidad = (TextView) findViewById(R.id.plan_nombre_especialidad);
 
 
@@ -97,42 +99,42 @@ public class Plan extends AppCompatActivity {
             }
             if (a.getRama() == 0) {
                 creditosTroncal = creditosTroncal + a.getCreditos();
-                if(a.getEstado()==2 && a.getCalificacion()>=5){
+                if(a.getEstado()==3){
                     creditosTroncalsuperados = creditosTroncalsuperados + a.getCreditos();
                 }
             }
 
             if (a.getRama() == 1) {
                 creditosSistemas = creditosSistemas + a.getCreditos();
-                if(a.getEstado()==2 && a.getCalificacion()>=5){
+                if(a.getEstado()==3){
                     creditosSistemassuperados = creditosSistemassuperados + a.getCreditos();
                 }
             }
 
             if (a.getRama() == 2) {
                 creditosElectronica = creditosElectronica + a.getCreditos();
-                if(a.getEstado()==2 && a.getCalificacion()>=5){
+                if(a.getEstado()==3){
                     creditosElectronicasuperados = creditosElectronicasuperados + a.getCreditos();
                 }
             }
 
             if (a.getRama() == 3) {
                 creditosSonido = creditosSonido + a.getCreditos();
-                if(a.getEstado()==2 && a.getCalificacion()>=5){
+                if(a.getEstado()==3){
                     creditosSonidosuperados = creditosSonidosuperados + a.getCreditos();
                 }
             }
 
             if (a.getRama() == 4) {
                 creditosTelematica = creditosTelematica + a.getCreditos();
-                if(a.getEstado()==2 && a.getCalificacion()>=5){
+                if(a.getEstado()==3){
                     creditosTelematicasuperados = creditosTelematicasuperados + a.getCreditos();
                 }
             }
 
             if (a.getRama() == 5) {
                 creditosTotal = creditosTotal + a.getCreditos();
-                if(a.getEstado()==2 && a.getCalificacion()>=5){
+                if(a.getEstado()==3){
                     creditosTotalsuperados = creditosTotalsuperados + a.getCreditos();
                 }
             }
@@ -141,26 +143,11 @@ public class Plan extends AppCompatActivity {
 
         //Gestión de créditos
 
-        //Créditos totales
-
-
-        creditosTotalsuperados = creditosTotalsuperados + creditosTelematicasuperados + creditosSonidosuperados + creditosElectronicasuperados + creditosSistemassuperados + creditosTroncalsuperados + MainActivity.getAppUser().getCreditosExtra() + MainActivity.getAppUser().getCreditosPracticas();
-        System.out.println("Total superados: " + creditosTotalsuperados);
-        double ratioTotal = 100 * creditosTotalsuperados / 240.0;
-
-
-        System.out.println("Ratio: " + ratioTotal);
-        progressTotal.setProgress((int)ratioTotal);
-        percentajeTotal.setText(String.valueOf((int)ratioTotal)+ "%");
-
-
         //Creditos troncales
         double ratioTroncal = 100 * creditosTroncalsuperados/creditosTroncal;
         progressTroncal.setProgress((int)ratioTroncal);
         percentajeTroncal.setText(String.valueOf((int)ratioTroncal) + "%");
         creditosTroncalText.setText("Créditos : "+Double.toString(creditosTroncalsuperados)+"/"+creditosTroncal);
-
-
 
         //Créditos de especialidad
 
@@ -171,47 +158,140 @@ public class Plan extends AppCompatActivity {
         ramasCreditos[3] = creditosTelematicasuperados;
 
         double max =0;
-        int RamaEspecialidad = 0;
+        int RamaEspecialidad = -1;
 
         for ( int i=0; i<ramasCreditos.length; i++){
             if(ramasCreditos[i]>max){
                 RamaEspecialidad = i;
+                max = ramasCreditos[i];
             }
         }
 
-        //Sistemas
+        double Cespecialidad=0;
+
+
+        if(RamaEspecialidad==-1){
+            textoEspecialidad.setText("Especialidad : -Sin definir-");
+            creditosEspecialidad.setText("Créditos: 0.0/ 58.5");
+            progressEspecialidad.setProgress(0);
+            percentajeEspecialidad.setText("0%");
+            Cespecialidad = 0;
+        }
         if(RamaEspecialidad==0){
             textoEspecialidad.setText("Especialidad : Sistemas de Telecomunicaciones");
+            creditosEspecialidad.setText("Créditos: "+creditosSistemassuperados+"/ 58.5");
+            progressEspecialidad.setProgress((int)(100*creditosSistemassuperados/58.5));
+            percentajeEspecialidad.setText((int)(100*creditosSistemassuperados/58.5)+"%");
+            Cespecialidad =creditosSistemassuperados;
+        }
+        if(RamaEspecialidad ==1){
+            textoEspecialidad.setText("Especialidad : Electrónica");
+            creditosEspecialidad.setText("Créditos: "+creditosElectronicasuperados+"/ 58.5");
+            progressEspecialidad.setProgress((int)(100*creditosElectronicasuperados/58.5));
+            percentajeEspecialidad.setText((int)(100*creditosElectronicasuperados/58.5)+"%");
+            Cespecialidad = creditosElectronicasuperados;
 
+        }
+        if(RamaEspecialidad==2){
+            textoEspecialidad.setText("Especialidad : Sonido e Imagen");
+            creditosEspecialidad.setText("Créditos: "+creditosSonidosuperados+"/ 58.5");
+            progressEspecialidad.setProgress((int)(100*creditosSonidosuperados/58.5));
+            percentajeEspecialidad.setText((int)(100*creditosSonidosuperados/58.5)+"%");
+            Cespecialidad = creditosSonidosuperados;
+        }
+        if(RamaEspecialidad==3){
+            textoEspecialidad.setText("Especialidad : Telemática");
+            creditosEspecialidad.setText("Créditos: "+creditosTelematicasuperados+"/ 58.5");
+            progressEspecialidad.setProgress((int)(100*creditosTelematicasuperados/58.5));
+            percentajeEspecialidad.setText((int)(100*creditosTelematicasuperados/58.5)+"%");
+            Cespecialidad = creditosTelematicasuperados;
         }
 
 
 
 
         //Créditos optativos
+
+
+        //asignaturas optativas (no son de rama)
+        double Casignatura = 0;
+        if(RamaEspecialidad==-1){
+            creditosOptativosAsignatura.setText("0.0 Créditos");
+        }
+        if(RamaEspecialidad!= 0){
+            Casignatura = Casignatura + creditosSistemassuperados;
+        }
+        if(RamaEspecialidad!= 1){
+            Casignatura = Casignatura + creditosElectronicasuperados;
+        }
+        if(RamaEspecialidad!= 2){
+            Casignatura = Casignatura + creditosSonidosuperados;
+        }
+        if(RamaEspecialidad!= 3){
+            Casignatura = Casignatura + creditosTelematicasuperados;
+        }
+
+        creditosOptativosAsignatura.setText(Casignatura + " Créditos");
+
+
+        //Créditos Extracurriculares
         double Copt = MainActivity.getAppUser().getCreditosExtra();
         if(Copt>6){
             Copt = 6;
         }
         creditosOptativosExtra.setText(Copt + " Créditos");
 
+
+        //Créditos Prácticas en empresa
         double Cemp = MainActivity.getAppUser().getCreditosPracticas();
         if(Copt>18){
             Copt = 18;
         }
         creditosOptativosEmpresa.setText(Cemp + " Créditos");
 
+        //Creditos totales optativos
+        double Ctot = Casignatura + Cemp + Copt;
+        int Cratio = (int) (100*Ctot/24);
+        double CtotControl = Ctot;
+
+        if(Cratio>100){
+            Cratio = 100;
+            CtotControl = 24;
+        }
+
+        creditosOptativos.setText("Créditos: "+ CtotControl + "/24.0");
+        progressOptativo.setProgress(Cratio);
+        percentajeOptativo.setText(Cratio + "%");
+
+
+        //Créditos totales
+
+        creditosTotalsuperados = CtotControl + creditosTroncalsuperados + Cespecialidad;
+        System.out.println("Total superados: " + creditosTotalsuperados);
+        double ratioTotal = 100 * creditosTotalsuperados / 240.0;
+
+
+        System.out.println("Ratio: " + ratioTotal);
+        progressTotal.setProgress((int)ratioTotal);
+        percentajeTotal.setText(String.valueOf((int)ratioTotal)+ "%");
+
+
+        if(creditosTotalsuperados<228){
+            nombreTFG.setText("Trabajo de Fin de Grado: (necesario tener el resto de créditos superados)");
+            botonTFG.setEnabled(false);
+        }
+
         //Estado del TFG
 
-        if(aTFG.getEstado()==0 || aTFG.getEstado()==1){
+        if(aTFG.getEstado()==0 || aTFG.getEstado()==1 ){
             estadoTFG.setText("PENDIENTE");
             estadoTFG.setTextColor(Color.parseColor("#2196F3"));
         }
-        if(aTFG.getEstado()==2 && aTFG.getCalificacion()>=5){
+        if(aTFG.getEstado()==3 ){
             estadoTFG.setText("¡¡APROBADO!!");
             estadoTFG.setTextColor(Color.parseColor("#4caf50"));
         }
-        if(aTFG.getEstado()==2 && aTFG.getCalificacion()<5){
+        if(aTFG.getEstado()==2 ){
             estadoTFG.setText("SUSPENDIDO");
             estadoTFG.setTextColor(Color.parseColor("#f44336"));
         }

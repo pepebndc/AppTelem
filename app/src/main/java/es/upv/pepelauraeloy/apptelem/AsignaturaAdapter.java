@@ -101,12 +101,12 @@ public class AsignaturaAdapter extends RecyclerView.Adapter<AsignaturaAdapter.As
         }
 
         //Si aprobado, color Verde
-        if (items.get(i).getEstado() == 2 && items.get(i).getCalificacion() >= 5) {
+        if (items.get(i).getEstado() ==3) {
             viewHolder.side.setBackgroundColor(Color.parseColor("#4caf50"));
         }
 
         //Si suspenso, color Rojo
-        if (items.get(i).getEstado() == 2 && items.get(i).getCalificacion() < 5) {
+        if (items.get(i).getEstado() == 2) {
             viewHolder.side.setBackgroundColor(Color.parseColor("#f44336"));
         }
 
