@@ -1,216 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".DetailAsignatura"
-    tools:showIn="@layout/activity_detail_asignatura">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:padding="20dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".DetailAsignatura"
+        tools:showIn="@layout/activity_detail_asignatura">
 
-
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            app:cardCornerRadius="4dp"
-            android:id="@+id/asignaturaCardView">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/asignaturaCardView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                app:cardCornerRadius="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/detail_asignatura_Nombre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Nombre"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/detail_asignatura_Rama"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="20dp"
+                            android:text="Rama"
+                            android:textSize="20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/detail_asignatura_Creditos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Creditos"
+                            android:textSize="20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/detail_asignatura_Semestre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Semestre"
+                            android:textSize="20dp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/asignaturaCardView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:clipToPadding="false"
+                android:paddingTop="10dp"
+                app:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:orientation="vertical">
 
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nombre"
+                        android:text="Detalles:"
+                        android:textSize="20dp"
+                        android:textStyle="normal" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/transparent" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nota:  " />
+
+                        <EditText
+                            android:id="@+id/detail_nota"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:digits="0123456789."
+                            android:hint="Nota"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:text="Cursada " />
+
+                        <Switch
+                            android:id="@+id/detail_cursada"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:text="Interesado en hacerla " />
+
+                        <Switch
+                            android:id="@+id/detail_proxima_asignatura"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/transparent" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <CheckBox
+                            android:id="@+id/detail_forzar_aprobado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aprobado extraordinario." />
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/transparent" />
+
+                    <Button
+                        android:id="@+id/detail_guardar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:textStyle="bold"
-                        android:textSize="30dp"
-                        android:id="@+id/detail_asignatura_Nombre"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Rama"
-                        android:textStyle="normal"
-                        android:paddingTop="20dp"
-                        android:textSize="20dp"
-                        android:id="@+id/detail_asignatura_Rama"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Creditos"
-                        android:textStyle="normal"
-                        android:textSize="20dp"
-                        android:id="@+id/detail_asignatura_Creditos"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Semestre"
-                        android:textStyle="normal"
-                        android:textSize="20dp"
-                        android:id="@+id/detail_asignatura_Semestre"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <View
-            android:layout_height="5dp"
-            android:layout_width="1dp"
-            android:background="@android:color/transparent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            />
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:clipToPadding="false"
-            android:layout_margin="1dp"
-            app:cardCornerRadius="4dp"
-            android:id="@+id/asignaturaCardView2">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Detalles:"
-                    android:textStyle="normal"
-                    android:textSize="20dp"/>
-
-                <View
-                    android:layout_height="5dp"
-                    android:layout_width="1dp"
-                    android:background="@android:color/transparent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nota:  "/>
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="Nota"
-                        android:inputType="number"
-                        android:digits="0123456789."
-                        android:id="@+id/detail_nota"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cursada "
-                        android:layout_marginRight="10dp"/>
-                    <Switch
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/detail_cursada"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Interesado en hacerla "
-                        android:layout_marginRight="10dp"/>
-                    <Switch
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/detail_proxima_asignatura"/>
-                </LinearLayout>
-
-                <View
-                    android:layout_height="5dp"
-                    android:layout_width="1dp"
-                    android:background="@android:color/transparent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/detail_forzar_aprobado"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Forzar asignatura como aprobada."/>
+                        android:text="GUARDAR" />
 
 
                 </LinearLayout>
 
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
 
-
-                <View
-                    android:layout_height="5dp"
-                    android:layout_width="1dp"
-                    android:background="@android:color/transparent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:id="@+id/detail_guardar"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_height="wrap_content"
-                    android:text="GUARDAR"/>
-
-
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
