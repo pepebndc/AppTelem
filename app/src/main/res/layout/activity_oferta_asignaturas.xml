@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,19 +16,29 @@
             android:orientation="horizontal"
             android:weightSum="1">
 
-            <Button
+            <EditText
+                android:id="@+id/oferta_texto"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:text="Todas"
-                android:id="@+id/asignaturas_boton_todas"/>
+                android:hint="Buscar" />
 
             <Button
+                android:id="@+id/oferta_buscar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Troncales"
-                android:id="@+id/asignaturas_boton_troncales"/>
+                android:layout_weight="0.25"
+                android:background="@color/ligthGreen"
+                android:text="Buscar" />
+
+            <Button
+                android:id="@+id/oferta_borrar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:background="@color/lightRed"
+                android:text="Buscar" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -40,41 +48,61 @@
             android:weightSum="1">
 
             <Button
+                android:id="@+id/asignaturas_boton_todas"
                 android:layout_width="0dp"
-                android:layout_weight="0.25"
-                android:layout_height="60dp"
-                android:text="Sist."
-                android:id="@+id/asignaturas_boton_sistemas"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Todas" />
 
             <Button
+                android:id="@+id/asignaturas_boton_troncales"
                 android:layout_width="0dp"
-                android:layout_weight="0.25"
-                android:layout_height="60dp"
-                android:text="Elect."
-                android:id="@+id/asignaturas_boton_electronica"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="0.25"
-                android:layout_height="60dp"
-                android:text="Sonido"
-                android:id="@+id/asignaturas_boton_sonido"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="0.25"
-                android:layout_height="60dp"
-                android:text="Telem."
-                android:id="@+id/asignaturas_boton_telematica"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Troncales" />
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            xmlns:android = "http://schemas.android.com/apk/res/android"
-            android:id="@+id/reciclador"
-            android:layoutAnimation="@anim/layout_animation_paladerecha"
-            android:padding="10dp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/asignaturas_boton_sistemas"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.25"
+                android:text="Sist." />
+
+            <Button
+                android:id="@+id/asignaturas_boton_electronica"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.25"
+                android:text="Elect." />
+
+            <Button
+                android:id="@+id/asignaturas_boton_sonido"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.25"
+                android:text="Sonido" />
+
+            <Button
+                android:id="@+id/asignaturas_boton_telematica"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.25"
+                android:text="Telem." />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/reciclador"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutAnimation="@anim/layout_animation_paladerecha"
+            android:padding="10dp"></android.support.v7.widget.RecyclerView>
 
 
     </LinearLayout>

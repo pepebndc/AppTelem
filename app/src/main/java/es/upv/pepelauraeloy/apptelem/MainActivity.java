@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private static Usuario appUser;
     private static String PathToSave;
     private static int controlRama;
+    public static String filtro;
 
     public static String getPathToSave() {
         return PathToSave;
@@ -196,5 +197,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void setNuevoUsuario(Button nuevoUsuario) {
         this.nuevoUsuario = nuevoUsuario;
+    }
+
+    public String getFiltro() {
+        return filtro;
+    }
+
+    public void setFiltro(String filtro) {
+        this.filtro = filtro;
     }
 }

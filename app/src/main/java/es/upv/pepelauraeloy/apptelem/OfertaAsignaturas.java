@@ -134,45 +134,51 @@ public class OfertaAsignaturas extends AppCompatActivity {
         while (it.hasNext()) {
             Asignatura a = it.next();
 
-            //mostrar sólo troncal
-            if (MainActivity.getControlRama() == 0) {
-                if (a.getRama() == 0) {
-                    mostrar.add(a);
-                }
-            }
+            String filtro = MainActivity.filtro;
 
-            //mostrar sólo rama 1
-            if (MainActivity.getControlRama() == 1) {
-                if (a.getRama() == 1) {
-                    mostrar.add(a);
-                }
-            }
+            //filtrado
+            if(a.getNombre().contains(filtro)) {
 
-            //mostrar sólo rama 2
-            if (MainActivity.getControlRama() == 2) {
-                if (a.getRama() == 2) {
-                    mostrar.add(a);
+                //mostrar sólo troncal
+                if (MainActivity.getControlRama() == 0) {
+                    if (a.getRama() == 0) {
+                        mostrar.add(a);
+                    }
                 }
-            }
 
-            //mostrar sólo rama 3
-            if (MainActivity.getControlRama() == 3) {
-                if (a.getRama() == 3) {
-                    mostrar.add(a);
+                //mostrar sólo rama 1
+                if (MainActivity.getControlRama() == 1) {
+                    if (a.getRama() == 1) {
+                        mostrar.add(a);
+                    }
                 }
-            }
 
-            //mostrar sólo rama 4
-            if (MainActivity.getControlRama() == 4) {
-                if (a.getRama() == 4) {
-                    mostrar.add(a);
+                //mostrar sólo rama 2
+                if (MainActivity.getControlRama() == 2) {
+                    if (a.getRama() == 2) {
+                        mostrar.add(a);
+                    }
                 }
-            }
 
-            //mostrar todas
-            if (MainActivity.getControlRama() == 5) {
-                if(a.getRama() != 5){
-                    mostrar.add(a);
+                //mostrar sólo rama 3
+                if (MainActivity.getControlRama() == 3) {
+                    if (a.getRama() == 3) {
+                        mostrar.add(a);
+                    }
+                }
+
+                //mostrar sólo rama 4
+                if (MainActivity.getControlRama() == 4) {
+                    if (a.getRama() == 4) {
+                        mostrar.add(a);
+                    }
+                }
+
+                //mostrar todas
+                if (MainActivity.getControlRama() == 5) {
+                    if (a.getRama() != 5) {
+                        mostrar.add(a);
+                    }
                 }
             }
         }
