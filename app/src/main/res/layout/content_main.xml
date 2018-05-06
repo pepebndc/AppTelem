@@ -54,6 +54,8 @@
             android:padding="10dp"
             android:text="Asignaturas" />
 
+        
+
         <Button
             android:id="@+id/main_boton_plan"
             android:layout_width="match_parent"

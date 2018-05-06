@@ -3,6 +3,7 @@ package es.upv.pepelauraeloy.apptelem;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Iterator;
 
@@ -14,6 +15,11 @@ public class Estadisticas extends AppCompatActivity {
     TextView UI_M56;
     TextView UI_M78;
 
+    TextView UI_masAlta;
+    TextView UI_masBaja;
+    TextView UI_sobresalientes;
+    TextView UI_5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +30,11 @@ public class Estadisticas extends AppCompatActivity {
         UI_M34 = (TextView) findViewById(R.id.estadisticas_S34);
         UI_M56 = (TextView) findViewById(R.id.estadisticas_S56);
         UI_M78 = (TextView) findViewById(R.id.estadisticas_S78);
+
+        UI_masAlta = (TextView) findViewById(R.id.estadisticas_masAlta);
+        UI_masBaja = (TextView) findViewById(R.id.estadisticas_masBaja);
+        UI_sobresalientes = (TextView) findViewById(R.id.estadisticas_sobresalientes);
+        UI_5 = (TextView) findViewById(R.id.estadisticas_5);
 
 
         //Recogida de todos los datos
@@ -53,13 +64,34 @@ public class Estadisticas extends AppCompatActivity {
         boolean tfg=false;
 
 
+        boolean asignaturas=false;
+        Asignatura masAlta = new Asignatura(1,"",9,0,0,9,9);
+        Asignatura masBaja = new Asignatura(1,"",9,0,11,9,9);;
+        int sobresalientes =0;
+        int cincos =0;
+
+
         Iterator<Asignatura> it = MainActivity.getAppUser().getAsignaturas().iterator();
         while (it.hasNext()) {
             Asignatura a = it.next();
 
             if(a.getEstado()==2 || a.getEstado()==3) {
-
+                asignaturas = true;
                 System.out.println("Asignatura a analizar: "+a.getNombre() +" Semestre: " + a.getSemestre() + " nota: "+ a.getCalificacion() + " creditos: "+a.getCreditos());
+
+                //comparar más alta o más baja y sobresaliente
+                if(a.getCalificacion()>=9){
+                    sobresalientes++;
+                }
+                if(a.getCalificacion()==5 || (a.getCalificacion()<5 && a.getEstado()==3)){
+                    cincos++;
+                }
+                if(a.getCalificacion()>masAlta.getCalificacion()){
+                    masAlta = a;
+                }
+                if(a.getCalificacion()<masBaja.getCalificacion()){
+                    masBaja=a;
+                }
 
                 if (a.getSemestre() == 1 || a.getSemestre() == 2) {
                     N12 = N12 + (a.getCalificacion() * a.getCreditos());
@@ -114,12 +146,36 @@ public class Estadisticas extends AppCompatActivity {
         System.out.println("C56 = " + C56 +    "N56= "+N56+ "   M56="+M56);
         System.out.println("C78 = " + C78 + "   N78= "+N78+ "   M78="+M78);
 
-        UI_Mtot.setText(""+ Mtot);
-        UI_M12.setText(""+ M12);
-        UI_M34.setText(""+ M34);
-        UI_M56.setText(""+ M56);
-        UI_M78.setText(""+ M78);
 
+        if(asignaturas) {
+            UI_Mtot.setText("" + Mtot);
+            UI_M12.setText("" + M12);
+            UI_M34.setText("" + M34);
+            UI_M56.setText("" + M56);
+            UI_M78.setText("" + M78);
+
+            UI_sobresalientes.setText("" + sobresalientes);
+            UI_masAlta.setText(masAlta.getNombre() + "\n(" + masAlta.getCalificacion() + ")");
+            UI_masBaja.setText(masBaja.getNombre() + "\n(" + masBaja.getCalificacion() + ")");
+            UI_5.setText(""+cincos);
+
+        }else{
+
+            Toast toast1 = Toast.makeText(getApplicationContext(), "No has cursado ninguna asignatura", Toast.LENGTH_LONG);
+            toast1.show();
+
+
+            UI_Mtot.setText("---" );
+            UI_M12.setText("---" );
+            UI_M34.setText("---" );
+            UI_M56.setText("---" );
+            UI_M78.setText("---" );
+
+            UI_sobresalientes.setText("---");
+            UI_masAlta.setText("---");
+            UI_masBaja.setText("---");
+            UI_5.setText("---");
+        }
 
 
 
