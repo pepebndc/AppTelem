@@ -148,11 +148,12 @@ public class Estadisticas extends AppCompatActivity {
 
 
         if(asignaturas) {
-            UI_Mtot.setText("" + Mtot);
-            UI_M12.setText("" + M12);
-            UI_M34.setText("" + M34);
-            UI_M56.setText("" + M56);
-            UI_M78.setText("" + M78);
+            UI_Mtot.setText("" + Double.toString(Mtot).substring(0,4));
+            UI_M12.setText("" + Double.toString(M12).substring(0,4));
+            UI_M34.setText("" + Double.toString(M34).substring(0,4));
+            UI_M56.setText("" + Double.toString(M56).substring(0,4));
+            UI_M78.setText("" + Double.toString(M78).substring(0,4));
+
 
             UI_sobresalientes.setText("" + sobresalientes);
             UI_masAlta.setText(""+ masAlta.getCalificacion() );
