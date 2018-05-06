@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private static String PathToSave;
     private static int controlRama;
     public static String filtro;
+    private static boolean buscado;
 
     public static String getPathToSave() {
         return PathToSave;
@@ -51,12 +52,22 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.controlRama = controlRama;
     }
 
+    public static boolean isBuscado() {
+        return buscado;
+    }
+
+    public static void setBuscado(boolean buscado) {
+        MainActivity.buscado = buscado;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        buscado=false;
 
         //COMPROBAR SI EXISTE EL OBJETO DEL USUARIO, O CREARLO
 
