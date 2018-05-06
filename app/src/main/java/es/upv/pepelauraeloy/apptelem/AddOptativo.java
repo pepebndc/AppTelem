@@ -30,17 +30,29 @@ public class AddOptativo extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double saveCreditosExtra = Double.parseDouble(extraCreditos.getText().toString());
+
+                double saveCreditosExtra = 0;
+                if(!extraCreditos.getText().toString().equals("")) {
+                    saveCreditosExtra = Double.parseDouble(extraCreditos.getText().toString());
+                }
                 if(saveCreditosExtra > 6){{
                     saveCreditosExtra=6;
                 }}
 
-                double saveCreditosPracticas = Double.parseDouble(practicasCreditos.getText().toString());
+
+                double saveCreditosPracticas=0;
+                if(!practicasCreditos.getText().toString().equals("")) {
+                    saveCreditosPracticas = Double.parseDouble(practicasCreditos.getText().toString());
+                }
                 if(saveCreditosPracticas>18){
                     saveCreditosPracticas=18;
                 }
 
-                double saveNotaPracticas = Double.parseDouble(practicasNota.getText().toString());
+
+                double saveNotaPracticas = 0;
+                if(!practicasNota.getText().toString().equals("")) {
+                    saveNotaPracticas = Double.parseDouble(practicasNota.getText().toString());
+                }
                 if(saveNotaPracticas>10){
                     saveNotaPracticas=10;
                 }
