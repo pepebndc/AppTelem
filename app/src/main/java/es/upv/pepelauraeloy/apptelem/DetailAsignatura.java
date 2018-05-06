@@ -83,12 +83,12 @@ public class DetailAsignatura extends AppCompatActivity {
             case 2:{
 
                 cursada.setChecked(true);
-                interesado.setChecked(true);
+                interesado.setChecked(false);
                 break;
             }
             case 3:{
                 cursada.setChecked(true);
-                interesado.setChecked(true);
+                interesado.setChecked(false);
                 if(getIntent().getExtras().getFloat("curNota")<5){
                     forzarAprobada.setChecked(true);
                 }
