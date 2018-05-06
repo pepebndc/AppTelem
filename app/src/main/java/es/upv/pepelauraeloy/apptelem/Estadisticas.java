@@ -148,11 +148,37 @@ public class Estadisticas extends AppCompatActivity {
 
 
         if(asignaturas) {
-            UI_Mtot.setText("" + Double.toString(Mtot).substring(0,4));
-            UI_M12.setText("" + Double.toString(M12).substring(0,4));
-            UI_M34.setText("" + Double.toString(M34).substring(0,4));
-            UI_M56.setText("" + Double.toString(M56).substring(0,4));
-            UI_M78.setText("" + Double.toString(M78).substring(0,4));
+
+            if(Double.toString(Mtot).length()>4){
+                UI_Mtot.setText("" + Double.toString(Mtot).substring(0,4));
+            }else{
+                UI_Mtot.setText("" + Double.toString(Mtot));
+            }
+
+            if(Double.toString(M12).length()>4){
+                UI_M12.setText("" + Double.toString(M12).substring(0,4));
+            }else{
+                UI_M12.setText("" + Double.toString(M12));
+            }
+
+            if(Double.toString(M34).length()>4){
+                UI_M34.setText("" + Double.toString(M34).substring(0,4));
+            }else{
+                UI_M34.setText("" + Double.toString(M34));
+            }
+
+            if(Double.toString(M56).length()>4){
+                UI_M56.setText("" + Double.toString(M56).substring(0,4));
+            }else{
+                UI_M56.setText("" + Double.toString(M56));
+            }
+
+            if(Double.toString(M78).length()>4){
+                UI_M78.setText("" + Double.toString(M78).substring(0,4));
+            }else{
+                UI_M78.setText("" + Double.toString(M78));
+
+            }
 
 
             UI_sobresalientes.setText("" + sobresalientes);
