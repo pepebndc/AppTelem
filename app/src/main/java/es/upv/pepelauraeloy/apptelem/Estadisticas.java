@@ -155,8 +155,8 @@ public class Estadisticas extends AppCompatActivity {
             UI_M78.setText("" + M78);
 
             UI_sobresalientes.setText("" + sobresalientes);
-            UI_masAlta.setText(masAlta.getNombre() + "\n(" + masAlta.getCalificacion() + ")");
-            UI_masBaja.setText(masBaja.getNombre() + "\n(" + masBaja.getCalificacion() + ")");
+            UI_masAlta.setText(""+ masAlta.getCalificacion() );
+            UI_masBaja.setText("" + masBaja.getCalificacion());
             UI_5.setText(""+cincos);
 
         }else{
