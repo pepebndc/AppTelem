@@ -17,9 +17,9 @@
 
         <View
             android:id="@+id/divider"
-            android:layout_width="395dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="?android:attr/listDivider"
+
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="123dp" />
 

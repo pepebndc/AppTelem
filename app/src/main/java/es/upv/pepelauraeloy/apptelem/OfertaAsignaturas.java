@@ -134,7 +134,7 @@ public class OfertaAsignaturas extends AppCompatActivity {
         while (it.hasNext()) {
             Asignatura a = it.next();
 
-            String filtro = MainActivity.filtro;
+            String filtro = "";
 
             //filtrado
             if(a.getNombre().contains(filtro)) {
