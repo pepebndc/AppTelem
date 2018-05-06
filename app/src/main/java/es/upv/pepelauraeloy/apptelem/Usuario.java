@@ -68,7 +68,7 @@ public class Usuario implements Serializable {
         listaAsignaturas.add( new Asignatura (12419, "FCO - Fundamentos de computadores", 0, 4.5 , 0, 0, 1));
         listaAsignaturas.add( new Asignatura (12418, "MAT III - Matemáticas III", 0, 4.5 , 0, 0, 3));
         listaAsignaturas.add( new Asignatura (12420, "PYSA - Probabilidad y señales aleatorias", 0, 4.5 , 0, 0, 3));
-        listaAsignaturas.add( new Asignatura (12424, "IDIOMA - Valenciano (C1) | Inglés | Francés | Alemán (nivel B2) ", 0, 4.5 , 0, 0, 5));
+        listaAsignaturas.add( new Asignatura (12424, "IDIOMA -  Inglés | Francés | Alemán (nivel B2) ", 0, 4.5 , 0, 0, 5));
         listaAsignaturas.add( new Asignatura (12421, "POLITICA - Política y normativa de telecomunicación", 0, 4.5 , 0, 0, 6));
         listaAsignaturas.add( new Asignatura (12428, "TDS I - Tratamiento digital de señales en comunicaciones I", 1, 4.5 , 0, 0, 5));
         listaAsignaturas.add( new Asignatura (12430, "TDS II - Tratamiento digital de señales en comunicaciones II", 1, 4.5 , 0, 0, 6));

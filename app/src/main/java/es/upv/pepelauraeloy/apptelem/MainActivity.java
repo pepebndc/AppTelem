@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         buscado=false;
+        controlRama = 5;
+        filtro ="";
 
         //COMPROBAR SI EXISTE EL OBJETO DEL USUARIO, O CREARLO
 
@@ -169,6 +171,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        buscado=false;
+        controlRama = 5;
+        filtro ="";
     }
 
     public void openEstadisticas(){
